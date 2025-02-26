@@ -1,0 +1,14 @@
+class Book {
+String title;
+String author;
+public Book(String title.String author );
+this.title=title;
+this.author=author;
+ System.out.println("Welcome");
+ System.out.println("title;"+title);
+ System.out.println("author;"+author);
+}
+public  static void main (String[] args){
+Person obj=new Person("Shinchan","Yoshito Usu");
+}
+}
