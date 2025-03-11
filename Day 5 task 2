@@ -1,0 +1,84 @@
+package implementing;
+
+import java.util.ArrayList;
+
+public class Composition {
+
+ 
+    static class Battery {
+        int capacity;
+
+        public Battery(int capacity) {
+            this.capacity = capacity;
+        }
+    }
+
+    static class Mobile {
+        String model;
+        Battery battery;
+
+        public Mobile(String model, Battery battery) {
+            this.model = model;
+            this.battery = battery;
+        }
+
+        public void displayMobileInfo() {
+            System.out.println("Mobile Model: " + model);
+            System.out.println("Battery Capacity: " + battery.capacity + " mAh");
+        }
+    }
+
+    static class Employee {
+        String name;
+        int employeeId;
+
+        public Employee(String name, int employeeId) {
+            this.name = name;
+            this.employeeId = employeeId;
+        }
+
+        public void displayEmployeeInfo() {
+            System.out.println("Employee Name: " + name + ", Employee ID: " + employeeId);
+        }
+    }
+
+    static class Department {
+        String departmentName;
+        ArrayList<Employee> employees = new ArrayList<>();
+
+        public Department(String departmentName) {
+            this.departmentName = departmentName;
+        }
+
+        public void addEmployee(Employee employee) {
+            employees.add(employee);
+        }
+
+        public void displayDepartmentInfo() {
+            System.out.println("Department: " + departmentName);
+            for (Employee employee : employees) {
+                employee.displayEmployeeInfo();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Battery battery = new Battery(5000);
+
+
+        Mobile mobile = new Mobile("iPhone", battery);
+        mobile.displayMobileInfo();
+
+ 
+        Employee emp1 = new Employee("Alice", 101);
+        Employee emp2 = new Employee("Bob", 102);
+
+    
+        Department department = new Department("HR");
+        department.addEmployee(emp1);
+        department.addEmployee(emp2);
+
+        department.displayDepartmentInfo();
+    }
+}
